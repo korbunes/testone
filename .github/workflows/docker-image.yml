@@ -1,18 +1,18 @@
-name: Docker Image CI
+name: ntaloventi
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: 
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
 
 jobs:
 
   build:
 
     runs-on: ubuntu-latest
+    timeout-minutes: 9999
 
     steps:
-    - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: lscpu
